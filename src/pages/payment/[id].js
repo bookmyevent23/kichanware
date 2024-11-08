@@ -92,7 +92,7 @@ const Payments = () => {
       
   const supportedInstruments = [
     {
-      supportedMethods: ['https://tez.google.com/pay'],
+      supportedMethods: ['https://gpay.google.com/pay'],
       data: {
        pa: products.upi,
         pn: 'Merchant Name',
