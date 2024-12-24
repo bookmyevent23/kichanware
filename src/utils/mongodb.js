@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const uri = 'mongodb+srv://v4x123:v4x123@cluster0.i3hnzcs.mongodb.net/A6';
+const uri = 'mongodb+srv://v4x123:v4x123@cluster0.i3hnzcs.mongodb.net/A5';
 export async function connectToDatabase() {
   try {
     await mongoose.connect(uri, {
