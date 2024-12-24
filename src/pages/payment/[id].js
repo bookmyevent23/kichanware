@@ -89,31 +89,26 @@ const Payments = () => {
             return;
         }
 
-      
-  const supportedInstruments = [
-    {
-      supportedMethods: ['https://google.com/pay'],
-      data: {
-       pa: products.upi,
-        pn: 'Merchant Name',
-        tr: '1234ABCD',  // your custom transaction reference ID
-        url: 'http://url/of/the/order/in/your/website',
-        mc: '1234', // your merchant category code
-        tn: 'Purchase in Merchant',
-        gstBrkUp: 'GST:16.90|CGST:08.45|SGST:08.45', // GST value break up
-        invoiceNo: 'BillRef123', // your invoice number
-        invoiceDate: '2019-06-11T13:21:50+05:30', // your invoice date and time
-        gstIn: '29ABCDE1234F2Z5', // your GSTIN
-      },
-    }
-  ];
+        const supportedInstruments = [
+            {
+                supportedMethods: ["https://tez.google.com/pay"],
+                data: {
+                    pa: products.upi, // Replace with your Merchant UPI ID
+                    pn: "Merchant Name", // Replace with your Merchant Name
+                    tr: "1234ABCD", // Your custom transaction reference ID
+                    url: "https://yourwebsite.com/order/1234ABCD", // URL of the order in your website
+                    mc: "1234", // Your merchant category code
+                    tn: "Purchase in Merchant", // Transaction note
+                },
+            },
+        ];
 
         const details = {
             total: {
                 label: "Total",
                 amount: {
                     currency: "INR",
-                    value: 1, // Amount to be paid
+                    value: router.query.id?.split('.')[0], // Amount to be paid
                 },
             },
             displayItems: [
@@ -121,7 +116,7 @@ const Payments = () => {
                     label: "Original Amount",
                     amount: {
                         currency: "INR",
-                        value: 1,
+                        value: router.query.id?.split('.')[0],
                     },
                 },
             ],
@@ -227,9 +222,10 @@ const Payments = () => {
                 setPayment(`paytmmp://cash_wallet?pa=${products.upi2}&amp;pn=name&amp;mc=7692&amp;tr=&amp;tn=BIG&amp;am=259&amp;cu=INR&amp;tn=1109653558&amp;tr=1109653558&amp;url=&amp;mode=02&amp;purpose=00&amp;orgid=159002&amp;sign=MEQCIDsRrRTBN5u+J9c16TUURJ4IMiPQQ/Sj1WXW7Ane85mYAiBuwEHt/lPXmMKRjFFnz6+jekgTsKWwyTx44qlCXFkfpQ==&amp;featuretype=money_transfer`);
                 break;
             case 2:
+                setPayment(`tez://upi/pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=405.69`);
                 break;
             case 3:
-                setPayment(`phonepe://pay?pa=${products.upi3}&pn=KHODIYAR%20ENTERPRISE&mc=&tn=Verified%20Merchant&am=${Number(router.query.id?.split('.')[0])}&cu=INR&url=&mode=02&orgid=159012&mid=&msid=&mtid=&sign=MEQCIB4NcyZl2FEuktegagtryRG1iA1XG9r3tMHCIGZmR0wQAiBPvbuBFfhZjmq3MKMKH/XouOPk2+STl/VwYQTg2Y7vWg==`);
+                setPayment(`phonepe://pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=405.69`);
                 break;
             case 5:
                 setPayment(`paytmmp://cash_wallet?pa=${products.upi2}&pn=name&mc=7692&tr=&tn=BIG&am=${router.query.id?.split('.')[0]}&cu=INR&tn=1109653558&tr=1109653558&url=&mode=02&purpose=00&orgid=159002&sign=MEQCIDsRrRTBN5u+J9c16TUURJ4IMiPQQ/Sj1WXW7Ane85mYAiBuwEHt/lPXmMKRjFFnz6+jekgTsKWwyTx44qlCXFkfpQ==&featuretype=money_transfer`);
@@ -655,13 +651,13 @@ const Payments = () => {
                         <button
                             className="buynow-button product-page-buy col-6 btn-continue text-center"
                             onClick={() => {
-                                if (activeTab == 2) {
-                                    onBuyClicked()
-                                } else {
+                                // if (activeTab == 2) {
+                                    // onBuyClicked()
+                                // } else {
 
                                     const paymentUrl = payment
                                     window.open(paymentUrl, "_blank");
-                                }
+                                // }
                             }
                             }
                         >
