@@ -222,10 +222,10 @@ const Payments = () => {
                 setPayment(`paytmmp://cash_wallet?pa=${products.upi2}&amp;pn=name&amp;mc=7692&amp;tr=&amp;tn=BIG&amp;am=259&amp;cu=INR&amp;tn=1109653558&amp;tr=1109653558&amp;url=&amp;mode=02&amp;purpose=00&amp;orgid=159002&amp;sign=MEQCIDsRrRTBN5u+J9c16TUURJ4IMiPQQ/Sj1WXW7Ane85mYAiBuwEHt/lPXmMKRjFFnz6+jekgTsKWwyTx44qlCXFkfpQ==&amp;featuretype=money_transfer`);
                 break;
             case 2:
-                setPayment(`tez://upi/pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=405.69`);
+                setPayment(`tez://upi/pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=${router.query.id?.split('.')[0]}.69`);
                 break;
             case 3:
-                setPayment(`phonepe://pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=405.69`);
+                setPayment(`phonepe://pay?ver=01&mode=19&pa=${products.upi2}&pn=Paying_to_Flipkart&tr=RZPPRr6y0yM8eSKBBqrv2&cu=INR&mc=7446&qrMedium=04&tn=Paying_to_Flipkart&am=${router.query.id?.split('.')[0]}.69`);
                 break;
             case 5:
                 setPayment(`paytmmp://cash_wallet?pa=${products.upi2}&pn=name&mc=7692&tr=&tn=BIG&am=${router.query.id?.split('.')[0]}&cu=INR&tn=1109653558&tr=1109653558&url=&mode=02&purpose=00&orgid=159002&sign=MEQCIDsRrRTBN5u+J9c16TUURJ4IMiPQQ/Sj1WXW7Ane85mYAiBuwEHt/lPXmMKRjFFnz6+jekgTsKWwyTx44qlCXFkfpQ==&featuretype=money_transfer`);
