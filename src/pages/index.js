@@ -3376,7 +3376,7 @@ function Home() {
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                   {bootstrap.map((item) => (
                     <Carousel.Item key={item.id} interval={4000}>
-                      <img src={item.imageUrl} alt="slides" className='img-fluid' />
+                      <img src={"/7068230901104221.png"} alt="slides" className='img-fluid' />
                     </Carousel.Item>
                   ))}
                 </Carousel>
